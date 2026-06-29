@@ -493,103 +493,44 @@
     }
 
 
-    /* LINK FIX — keeps buttons clickable over image/glow layers */
-    .hero-frame { position: relative; }
-    .hero-frame img { pointer-events: none !important; }
-    .hero-frame::before,
-    .hero-frame::after,
-    .bg-motion,
-    .bg-columns,
-    .grain,
-    #particles {
-      pointer-events: none !important;
-    }
-    .hotspot,
-    .mobile-hero-actions,
-    .mobile-button,
-    .button,
-    .button-mini,
-    .whatsapp-label,
-    .whatsapp-float {
-      pointer-events: auto !important;
-      position: relative;
-      z-index: 60;
-    }
-    .hotspot {
-      position: absolute !important;
-      display: block !important;
-      z-index: 80 !important;
-    }
-
-
-    /* ORIGINAL MODEL MOBILE FIX — buttons stay small, side-by-side and clickable */
-    @media(max-width:980px){
-      .hero-stage{
-        min-height:100svh !important;
-        overflow:hidden !important;
-        display:block !important;
-        padding:0 !important;
-      }
-      .hero-frame{
-        width:100% !important;
-        max-width:none !important;
-        height:100svh !important;
-        min-height:700px !important;
-        transform:none !important;
-        overflow:hidden !important;
-      }
-      .hero-frame img{
-        width:auto !important;
-        max-width:none !important;
-        height:100% !important;
-        min-height:100% !important;
-        object-fit:cover !important;
-        object-position:left top !important;
-        transform:translateX(0) !important;
-        pointer-events:none !important;
-      }
+    /* EXACT MODEL MOBILE FIX — keeps the uploaded visual, fixes mobile CTAs */
+    @media (max-width:980px){
+      .hero-frame{position:relative !important;}
+      .hero-frame img{pointer-events:none !important;}
       .hero-frame::before,
       .hero-frame::after,
       .bg-motion,
       .bg-columns,
       .grain,
-      #particles{
-        pointer-events:none !important;
-      }
-      .hotspot{
-        display:none !important;
-      }
+      #particles{pointer-events:none !important;}
       .mobile-hero-actions{
         position:absolute !important;
-        left:12px !important;
-        right:12px !important;
-        bottom:12px !important;
-        z-index:999 !important;
+        left:14px !important;
+        right:14px !important;
+        bottom:14px !important;
+        z-index:120 !important;
         display:grid !important;
         grid-template-columns:1fr 1fr !important;
         gap:10px !important;
-        padding:7px !important;
-        border-radius:28px !important;
+        padding:8px !important;
+        border-radius:26px !important;
         background:rgba(5,6,7,.58) !important;
         backdrop-filter:blur(18px) !important;
         pointer-events:auto !important;
       }
       .mobile-button{
         width:100% !important;
-        min-height:44px !important;
-        height:44px !important;
+        min-height:46px !important;
+        height:46px !important;
         padding:0 10px !important;
         border-radius:999px !important;
-        display:flex !important;
-        align-items:center !important;
-        justify-content:center !important;
-        text-align:center !important;
-        font-weight:950 !important;
         font-size:12px !important;
         line-height:1 !important;
         white-space:nowrap !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:center !important;
         pointer-events:auto !important;
-        box-shadow:0 14px 34px rgba(0,0,0,.28) !important;
       }
       .mobile-primary{
         color:#120d05 !important;
@@ -600,34 +541,26 @@
         background:rgba(255,255,255,.08) !important;
         border:1px solid rgba(255,255,255,.16) !important;
       }
-    }
-    @media(max-width:520px){
-      .hero-frame{
-        min-height:690px !important;
-      }
       .hero-frame img{
         object-position:left top !important;
-        transform:translateX(0) !important;
       }
+    }
+    @media (max-width:520px){
       .mobile-hero-actions{
         grid-template-columns:1fr 1fr !important;
-        left:10px !important;
-        right:10px !important;
-        bottom:10px !important;
-        gap:8px !important;
+        bottom:12px !important;
+        left:12px !important;
+        right:12px !important;
       }
       .mobile-button{
         min-height:42px !important;
         height:42px !important;
         font-size:11px !important;
-        padding:0 8px !important;
+        padding:0 7px !important;
       }
     }
-    @media(max-width:370px){
-      .mobile-button{
-        font-size:10px !important;
-        padding:0 6px !important;
-      }
+    @media (max-width:360px){
+      .mobile-button{font-size:10px !important;}
     }
 
   </style>
@@ -906,35 +839,21 @@
     });
 
 
-    /* LINK FIX — real destinations */
-    const LINK_FIX_APPLY = "mailto:contact@sackoconcept.com?subject=LaunchVault%20Affiliate%20Program%20Application";
-    const LINK_FIX_PRODUCT = "https://launchvault.sackoconcept.com/";
-    document.querySelectorAll(".js-apply-link").forEach((link) => {
-      link.setAttribute("href", LINK_FIX_APPLY);
-      link.removeAttribute("target");
-    });
-    document.querySelectorAll(".button-mini").forEach((link) => {
-      link.setAttribute("href", LINK_FIX_PRODUCT);
-      link.setAttribute("target", "_blank");
-      link.setAttribute("rel", "noopener");
-    });
-    document.querySelectorAll('a[href="#"]').forEach((link) => {
-      if (link.classList.contains("js-apply-link")) {
-        link.setAttribute("href", LINK_FIX_APPLY);
-      } else if (link.classList.contains("button-mini")) {
-        link.setAttribute("href", LINK_FIX_PRODUCT);
-        link.setAttribute("target", "_blank");
-        link.setAttribute("rel", "noopener");
-      }
-    });
-
-
-    /* ORIGINAL MODEL LINK FIX */
+    /* EXACT MODEL LINK FIX */
+    const FINAL_APPLY_LINK = "mailto:contact@sackoconcept.com?subject=LaunchVault%20Affiliate%20Program%20Application";
+    const FINAL_PRODUCT_LINK = "https://launchvault.sackoconcept.com/";
+    const FINAL_CANVA_LINK = "https://www.canva.com/folder/FAHN8DgNvfw";
     document.querySelectorAll(".mobile-primary, .js-apply-link").forEach((button) => {
-      button.setAttribute("href", "mailto:contact@sackoconcept.com?subject=LaunchVault%20Affiliate%20Program%20Application");
+      button.setAttribute("href", FINAL_APPLY_LINK);
+      button.removeAttribute("target");
     });
     document.querySelectorAll(".mobile-secondary").forEach((button) => {
       button.setAttribute("href", "#how");
+    });
+    document.querySelectorAll(".button-mini").forEach((button) => {
+      button.setAttribute("href", FINAL_PRODUCT_LINK);
+      button.setAttribute("target", "_blank");
+      button.setAttribute("rel", "noopener");
     });
 
   </script>
