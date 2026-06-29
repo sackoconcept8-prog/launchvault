@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — LaunchVault Partners</title>
+  <meta name="theme-color" content="#050607" />
+  <style>
+    :root{--bg:#050607;--text:#fff8ea;--muted:#b9ad9f;--line:rgba(255,255,255,.14);--gold:#e6bc63;--gold2:#fff0bc;--cyan:#53e6ff;--green:#91f2c2;--max:900px}*{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 20% 0,rgba(230,188,99,.22),transparent 32%),radial-gradient(circle at 86% 16%,rgba(83,230,255,.15),transparent 32%),#050607;color:var(--text);line-height:1.6;display:grid;place-items:center;padding:28px}a{text-decoration:none;color:inherit}.box{width:min(var(--max),100%);border:1px solid var(--line);border-radius:32px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));box-shadow:0 40px 120px rgba(0,0,0,.34);padding:clamp(26px,5vw,54px);text-align:center;position:relative;overflow:hidden}.box:before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 110deg,transparent,rgba(83,230,255,.14),transparent,rgba(230,188,99,.16),transparent);filter:blur(70px);animation:spin 20s linear infinite;z-index:-1}@keyframes spin{to{transform:rotate(360deg)}}.badge{display:inline-flex;margin-bottom:18px;padding:9px 14px;border-radius:999px;color:var(--gold2);border:1px solid rgba(230,188,99,.35);background:rgba(230,188,99,.09);font-size:13px;font-weight:950;text-transform:uppercase;letter-spacing:.08em}h1{font-size:clamp(38px,6vw,70px);line-height:.95;letter-spacing:-.07em;margin-bottom:16px}.grad{background:linear-gradient(135deg,#fff,var(--gold2),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}p{color:var(--muted);font-size:18px;max-width:680px;margin:0 auto}.actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06);font-weight:950}.primary{border:0;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#150f05}.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}.card{padding:16px;border-radius:20px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04)}.card small{display:block;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:900;font-size:11px}.card b{display:block;color:var(--gold2);font-size:18px;margin-top:4px}@media(max-width:640px){.actions{display:grid}.btn{width:100%}.mini{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="box">
+    <div class="badge">Application sent</div>
+    <h1>Your LaunchVault Partner application is <span class="grad">ready.</span></h1>
+    <p>If your email app opened and you sent the message, your application has been submitted. We will review your profile and contact you with the next steps if your application is approved.</p>
+    <div class="mini">
+      <div class="card"><small>Review</small><b>Manual</b></div>
+      <div class="card"><small>Support</small><b>Email</b></div>
+      <div class="card"><small>Resources</small><b>After approval</b></div>
+    </div>
+    <div class="actions">
+      <a class="btn primary" href="../">Back to Partner Page</a>
+      <a class="btn" href="https://launchvault.sackoconcept.com/" target="_blank" rel="noopener">View LaunchVault</a>
+      <a class="btn" href="mailto:contact@sackoconcept.com">Contact Support</a>
+    </div>
+  </main>
+</body>
+</html>
