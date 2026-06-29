@@ -407,6 +407,266 @@
       .showcase-shell{padding:18px}
       .grid-4{grid-template-columns:1fr}
     }
+
+    /* PREMIUM MICRO-COMPONENTS — richer cards and animated dashboards */
+    .card.enhanced{
+      min-height: 330px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .card.enhanced::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(112deg,transparent 0%,rgba(255,255,255,.04) 38%,transparent 54%);
+      transform:translateX(-76%);
+      animation:cardSheen 8s ease-in-out infinite;
+      pointer-events:none;
+      opacity:.7;
+    }
+    @keyframes cardSheen{
+      0%,45%{transform:translateX(-78%);opacity:0}
+      55%{opacity:.75}
+      100%{transform:translateX(76%);opacity:0}
+    }
+    .card-main{position:relative;z-index:3}
+    .micro-board{
+      position:relative;
+      z-index:4;
+      margin-top:18px;
+      padding:14px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(circle at 12% 10%,rgba(83,230,255,.12),transparent 34%),
+        radial-gradient(circle at 88% 20%,rgba(230,188,99,.11),transparent 34%),
+        rgba(5,7,8,.42);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 18px 52px rgba(0,0,0,.24);
+      overflow:hidden;
+    }
+    .micro-board::before{
+      content:"";
+      position:absolute;
+      left:-38%;
+      top:0;
+      width:32%;
+      height:100%;
+      background:linear-gradient(90deg,transparent,rgba(83,230,255,.14),transparent);
+      transform:skewX(-15deg);
+      animation:boardScan 5.8s linear infinite;
+      pointer-events:none;
+    }
+    @keyframes boardScan{to{left:138%}}
+    .micro-head,.micro-row,.micro-kpis,.mini-action-row,.mini-timeline,.resource-stack,.mini-bars,.mini-progress{position:relative;z-index:2}
+    .micro-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+    }
+    .micro-title{
+      color:var(--muted);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      font-weight:950;
+    }
+    .status-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 9px;
+      border-radius:999px;
+      border:1px solid rgba(145,242,194,.24);
+      background:rgba(145,242,194,.085);
+      color:#adffd0;
+      font-size:10px;
+      font-weight:950;
+      white-space:nowrap;
+    }
+    .status-chip.gold{
+      border-color:rgba(230,188,99,.28);
+      background:rgba(230,188,99,.08);
+      color:var(--gold-soft);
+    }
+    .status-dot{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:currentColor;
+      box-shadow:0 0 16px currentColor;
+      animation:statusPulse 1.8s ease-in-out infinite;
+    }
+    @keyframes statusPulse{50%{opacity:.42;transform:scale(.75)}}
+    .micro-row{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:12px;
+      align-items:center;
+      min-height:26px;
+      margin-top:9px;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+    }
+    .micro-row strong{
+      color:var(--text);
+      font-size:13px;
+    }
+    .mini-progress{
+      height:8px;
+      border-radius:999px;
+      background:rgba(255,255,255,.075);
+      overflow:hidden;
+      margin-top:8px;
+    }
+    .mini-progress span{
+      display:block;
+      height:100%;
+      width:var(--w,70%);
+      border-radius:inherit;
+      background:linear-gradient(90deg,var(--gold),var(--cyan));
+      box-shadow:0 0 18px rgba(83,230,255,.28);
+      animation:progressGlow 2.8s ease-in-out infinite alternate;
+    }
+    @keyframes progressGlow{to{filter:brightness(1.18);opacity:.82}}
+    .mini-bars{
+      display:flex;
+      align-items:end;
+      gap:6px;
+      height:54px;
+      margin-top:12px;
+    }
+    .mini-bars i{
+      flex:1;
+      min-width:5px;
+      height:var(--h,45%);
+      border-radius:999px 999px 0 0;
+      background:linear-gradient(180deg,var(--cyan),#8caeff 45%,var(--gold));
+      opacity:.82;
+      animation:barDance 2.8s ease-in-out infinite;
+      animation-delay:var(--d,0s);
+      box-shadow:0 0 16px rgba(83,230,255,.18);
+    }
+    @keyframes barDance{50%{height:calc(var(--h,45%) + 15%);opacity:1}}
+    .micro-kpis{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:8px;
+      margin-top:12px;
+    }
+    .micro-kpi{
+      padding:10px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.09);
+      background:rgba(255,255,255,.04);
+      text-align:left;
+    }
+    .micro-kpi small{
+      display:block;
+      color:var(--muted);
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+      font-weight:900;
+    }
+    .micro-kpi b{
+      display:block;
+      color:var(--gold-soft);
+      font-size:17px;
+      line-height:1.1;
+      margin-top:4px;
+    }
+    .mini-timeline{
+      display:grid;
+      gap:8px;
+      margin-top:12px;
+    }
+    .timeline-item{
+      display:grid;
+      grid-template-columns:18px 1fr auto;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .timeline-item i{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--cyan);
+      box-shadow:0 0 16px rgba(83,230,255,.35);
+    }
+    .timeline-item:nth-child(2) i{background:var(--gold);box-shadow:0 0 16px rgba(230,188,99,.35)}
+    .timeline-item:nth-child(3) i{background:#9cf0be;box-shadow:0 0 16px rgba(156,240,190,.35)}
+    .timeline-item b{
+      color:var(--text);
+      font-size:12px;
+    }
+    .mini-action-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+    .mini-chip{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:7px 9px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.045);
+      color:var(--gold-soft);
+      font-size:11px;
+      font-weight:900;
+    }
+    .mini-chip::before{
+      content:"";
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),var(--cyan));
+      box-shadow:0 0 12px rgba(83,230,255,.26);
+    }
+    .resource-stack{
+      display:grid;
+      gap:8px;
+      margin-top:14px;
+    }
+    .resource-line{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:9px 10px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.09);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:850;
+    }
+    .resource-line b{
+      color:var(--text);
+      font-size:12px;
+    }
+    .resource-line span{
+      color:var(--cyan);
+      font-size:11px;
+      font-weight:950;
+    }
+    @media(max-width:720px){
+      .card.enhanced{min-height:auto}
+      .micro-board{padding:12px;border-radius:18px}
+      .mini-bars{height:44px}
+      .micro-kpis{grid-template-columns:1fr 1fr}
+    }
+
+
   </style>
 </head>
 <body>
@@ -444,9 +704,40 @@
         <div class="showcase-shell reveal">
           <div class="section-orbit"></div>
           <div class="grid-3">
-            <article class="card gold reveal"><div class="ambient-line"></div><div class="icon">💰</div><h3>High commission potential</h3><p>Reward partners with a strong commission structure that makes every recommendation feel truly worth it.</p><div class="meta-chip"><span class="meta-dot"></span> Conversion-focused</div></article>
-            <article class="card reveal"><div class="ambient-line"></div><div class="icon">📣</div><h3>Ready-to-post content</h3><p>Give affiliates visuals, hooks, scripts, and content ideas so they can promote faster with less friction.</p><div class="meta-chip"><span class="meta-dot"></span> Promotion made easy</div></article>
-            <article class="card gold reveal"><div class="ambient-line"></div><div class="icon">⭐</div><h3>Premium product positioning</h3><p>LaunchVault feels high-value and professional, which helps affiliates recommend it with confidence.</p><div class="meta-chip"><span class="meta-dot"></span> Strong perceived value</div></article>
+            <article class="card gold enhanced reveal">
+              <div class="card-main">
+                <div class="ambient-line"></div><div class="icon">💰</div><h3>High commission potential</h3><p>Reward partners with a strong commission structure that makes every recommendation feel truly worth it.</p>
+              </div>
+              <div class="micro-board">
+                <div class="micro-head"><span class="micro-title">Commission engine</span><span class="status-chip gold"><i class="status-dot"></i>40–50%</span></div>
+                <div class="micro-row"><span>Reward clarity</span><strong>Premium</strong></div>
+                <div class="mini-progress"><span style="--w:88%"></span></div>
+                <div class="micro-kpis"><div class="micro-kpi"><small>Base</small><b>40%</b></div><div class="micro-kpi"><small>Top</small><b>50%</b></div></div>
+              </div>
+            </article>
+            <article class="card enhanced reveal">
+              <div class="card-main">
+                <div class="ambient-line"></div><div class="icon">📣</div><h3>Ready-to-post content</h3><p>Give affiliates visuals, hooks, scripts, and content ideas so they can promote faster with less friction.</p>
+              </div>
+              <div class="micro-board">
+                <div class="micro-head"><span class="micro-title">Media kit</span><span class="status-chip"><i class="status-dot"></i>Ready</span></div>
+                <div class="resource-stack">
+                  <div class="resource-line"><b>Canva visuals</b><span>social</span></div>
+                  <div class="resource-line"><b>Video hooks</b><span>shorts</span></div>
+                  <div class="resource-line"><b>Email swipes</b><span>copy</span></div>
+                </div>
+              </div>
+            </article>
+            <article class="card gold enhanced reveal">
+              <div class="card-main">
+                <div class="ambient-line"></div><div class="icon">⭐</div><h3>Premium product positioning</h3><p>LaunchVault feels high-value and professional, which helps affiliates recommend it with confidence.</p>
+              </div>
+              <div class="micro-board">
+                <div class="micro-head"><span class="micro-title">Trust signals</span><span class="status-chip gold"><i class="status-dot"></i>Strong</span></div>
+                <div class="mini-action-row"><span class="mini-chip">AI business</span><span class="mini-chip">Creator value</span><span class="mini-chip">Premium UI</span></div>
+                <div class="mini-bars"><i style="--h:42%;--d:.1s"></i><i style="--h:62%;--d:.2s"></i><i style="--h:55%;--d:.3s"></i><i style="--h:86%;--d:.4s"></i><i style="--h:74%;--d:.5s"></i></div>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -461,26 +752,48 @@
         <div class="showcase-shell reveal">
           <div class="section-orbit"></div>
           <div class="steps">
-            <article class="card step reveal">
-              <div class="ambient-line"></div>
-              <div class="step-icon">📝 <span class="step-number">1</span></div>
-              <h3>Apply to join</h3>
-              <p>Creators, educators, influencers, and entrepreneurs can apply quickly and understand immediately that joining the program is simple.</p>
-              <div class="meta-chip"><span class="meta-dot"></span> Fast approval flow</div>
+            <article class="card step enhanced reveal">
+              <div class="card-main">
+                <div class="ambient-line"></div>
+                <div class="step-icon">📝 <span class="step-number">1</span></div>
+                <h3>Apply to join</h3>
+                <p>Creators, educators, influencers, and entrepreneurs can apply quickly and understand immediately that joining the program is simple.</p>
+              </div>
+              <div class="micro-board">
+                <div class="micro-head"><span class="micro-title">Application flow</span><span class="status-chip gold"><i class="status-dot"></i>Step 01</span></div>
+                <div class="mini-timeline">
+                  <div class="timeline-item"><i></i><b>Profile</b><span>name + email</span></div>
+                  <div class="timeline-item"><i></i><b>Audience</b><span>platforms</span></div>
+                  <div class="timeline-item"><i></i><b>Review</b><span>approval</span></div>
+                </div>
+              </div>
             </article>
-            <article class="card step reveal">
-              <div class="ambient-line"></div>
-              <div class="step-icon">🔗 <span class="step-number">2</span></div>
-              <h3>Get your referral link</h3>
-              <p>Once approved, each affiliate receives a unique link plus access to partner resources made for promotion.</p>
-              <div class="meta-chip"><span class="meta-dot"></span> Partner-ready setup</div>
+            <article class="card step enhanced reveal">
+              <div class="card-main">
+                <div class="ambient-line"></div>
+                <div class="step-icon">🔗 <span class="step-number">2</span></div>
+                <h3>Get your referral link</h3>
+                <p>Once approved, partners receive their unique link, promotional assets, and simple instructions to start sharing.</p>
+              </div>
+              <div class="micro-board">
+                <div class="micro-head"><span class="micro-title">Partner access</span><span class="status-chip"><i class="status-dot"></i>Connected</span></div>
+                <div class="micro-row"><span>Referral link</span><strong>Ready</strong></div>
+                <div class="mini-progress"><span style="--w:78%"></span></div>
+                <div class="mini-action-row"><span class="mini-chip">Canva</span><span class="mini-chip">Scripts</span><span class="mini-chip">Dashboard</span></div>
+              </div>
             </article>
-            <article class="card step reveal">
-              <div class="ambient-line"></div>
-              <div class="step-icon">📈 <span class="step-number">3</span></div>
-              <h3>Share &amp; earn</h3>
-              <p>Affiliates promote LaunchVault using ready-to-use assets and earn commissions on successful conversions.</p>
-              <div class="meta-chip"><span class="meta-dot"></span> Revenue opportunity</div>
+            <article class="card step enhanced reveal">
+              <div class="card-main">
+                <div class="ambient-line"></div>
+                <div class="step-icon">📈 <span class="step-number">3</span></div>
+                <h3>Share &amp; earn</h3>
+                <p>Affiliates promote LaunchVault using ready-to-use assets and earn commissions on successful conversions.</p>
+              </div>
+              <div class="micro-board">
+                <div class="micro-head"><span class="micro-title">Live performance</span><span class="status-chip gold"><i class="status-dot"></i>Tracking</span></div>
+                <div class="micro-kpis"><div class="micro-kpi"><small>Clicks</small><b>2.4K</b></div><div class="micro-kpi"><small>Sales</small><b>28</b></div></div>
+                <div class="mini-bars"><i style="--h:30%;--d:.1s"></i><i style="--h:48%;--d:.2s"></i><i style="--h:64%;--d:.3s"></i><i style="--h:52%;--d:.4s"></i><i style="--h:82%;--d:.5s"></i><i style="--h:92%;--d:.6s"></i></div>
+              </div>
             </article>
           </div>
         </div>
@@ -498,9 +811,9 @@
         <div class="showcase-shell reveal">
           <div class="section-orbit"></div>
           <div class="grid-3">
-            <article class="card commission-card reveal"><div class="ambient-line"></div><span class="tier-note">Best for beginners</span><h3>Starter Partner</h3><div class="rate">40%</div><p>For new affiliates getting started with LaunchVault promotion.</p><ul><li>Unique referral link</li><li>Media kit access</li><li>Monthly payout structure</li></ul></article>
-            <article class="card commission-card featured-card gold reveal"><div class="ambient-line"></div><span class="tier-note">Most attractive tier</span><h3>Growth Partner</h3><div class="rate">45%</div><p>For active partners who publish consistently and bring qualified traffic.</p><ul><li>Priority resource pack</li><li>Stronger partner positioning</li><li>Performance-oriented support</li></ul></article>
-            <article class="card commission-card reveal"><div class="ambient-line"></div><span class="tier-note">For top performers</span><h3>Top Partner</h3><div class="rate">50%</div><p>For high-performing affiliates with strong audience trust and consistent conversions.</p><ul><li>Top commission tier</li><li>Bonus promotional assets</li><li>Premium partner visibility</li></ul></article>
+            <article class="card commission-card enhanced reveal"><div class="card-main"><div class="ambient-line"></div><span class="tier-note">Best for beginners</span><h3>Starter Partner</h3><div class="rate">40%</div><p>For new affiliates getting started with LaunchVault promotion.</p><ul><li>Unique referral link</li><li>Media kit access</li><li>Monthly payout structure</li></ul></div><div class="micro-board"><div class="micro-head"><span class="micro-title">Level progress</span><span class="status-chip gold"><i class="status-dot"></i>Open</span></div><div class="mini-progress"><span style="--w:40%"></span></div></div></article>
+            <article class="card commission-card featured-card gold enhanced reveal"><div class="card-main"><div class="ambient-line"></div><span class="tier-note">Most attractive tier</span><h3>Growth Partner</h3><div class="rate">45%</div><p>For active partners who publish consistently and bring qualified traffic.</p><ul><li>Priority resource pack</li><li>Stronger partner positioning</li><li>Performance-oriented promotion</li></ul></div><div class="micro-board"><div class="micro-head"><span class="micro-title">Target</span><span class="status-chip"><i class="status-dot"></i>10 sales</span></div><div class="micro-kpis"><div class="micro-kpi"><small>Rate</small><b>45%</b></div><div class="micro-kpi"><small>Bonus</small><b>Active</b></div></div></div></article>
+            <article class="card commission-card enhanced reveal"><div class="card-main"><div class="ambient-line"></div><span class="tier-note">For top performers</span><h3>Top Partner</h3><div class="rate">50%</div><p>For high-performing affiliates with strong audience trust and consistent conversions.</p><ul><li>Top commission tier</li><li>Bonus promotional assets</li><li>Premium partner visibility</li></ul></div><div class="micro-board"><div class="micro-head"><span class="micro-title">Momentum</span><span class="status-chip gold"><i class="status-dot"></i>Featured</span></div><div class="mini-bars"><i style="--h:42%;--d:.1s"></i><i style="--h:68%;--d:.2s"></i><i style="--h:55%;--d:.3s"></i><i style="--h:86%;--d:.4s"></i><i style="--h:72%;--d:.5s"></i></div></div></article>
           </div>
         </div>
       </div>
@@ -516,10 +829,10 @@
         <div class="showcase-shell reveal">
           <div class="section-orbit"></div>
           <div class="grid-4">
-            <article class="card resource-card reveal"><div class="ambient-line"></div><div class="icon">🎨</div><h3>Visuals</h3><p>Premium graphics and campaign-ready visuals.</p><div class="meta-chip"><span class="meta-dot"></span> Social-ready</div></article>
-            <article class="card resource-card reveal"><div class="ambient-line"></div><div class="icon">✍️</div><h3>Hooks</h3><p>Caption ideas and attention-grabbing angles.</p><div class="meta-chip"><span class="meta-dot"></span> Faster writing</div></article>
-            <article class="card resource-card reveal"><div class="ambient-line"></div><div class="icon">🎬</div><h3>Scripts</h3><p>Short-form video scripts and talking points.</p><div class="meta-chip"><span class="meta-dot"></span> Better videos</div></article>
-            <article class="card resource-card reveal"><div class="ambient-line"></div><div class="icon">📊</div><h3>Tracking</h3><p>Simple visibility on clicks and performance.</p><div class="meta-chip"><span class="meta-dot"></span> Clear insights</div></article>
+            <article class="card resource-card enhanced reveal"><div class="card-main"><div class="ambient-line"></div><div class="icon">🎨</div><h3>Visuals</h3><p>Premium graphics and campaign-ready visuals.</p></div><div class="micro-board"><div class="resource-stack"><div class="resource-line"><b>Stories</b><span>9:16</span></div><div class="resource-line"><b>Posts</b><span>1:1</span></div></div></div></article>
+            <article class="card resource-card enhanced reveal"><div class="card-main"><div class="ambient-line"></div><div class="icon">✍️</div><h3>Hooks</h3><p>Caption ideas and attention-grabbing angles.</p></div><div class="micro-board"><div class="mini-action-row"><span class="mini-chip">TikTok</span><span class="mini-chip">IG</span><span class="mini-chip">X</span></div><div class="mini-progress"><span style="--w:82%"></span></div></div></article>
+            <article class="card resource-card enhanced reveal"><div class="card-main"><div class="ambient-line"></div><div class="icon">🎬</div><h3>Scripts</h3><p>Short-form video scripts and talking points.</p></div><div class="micro-board"><div class="resource-stack"><div class="resource-line"><b>UGC script</b><span>Ready</span></div><div class="resource-line"><b>Demo angle</b><span>Ready</span></div></div></div></article>
+            <article class="card resource-card enhanced reveal"><div class="card-main"><div class="ambient-line"></div><div class="icon">📊</div><h3>Tracking</h3><p>Simple visibility on clicks and performance.</p></div><div class="micro-board"><div class="micro-kpis"><div class="micro-kpi"><small>Clicks</small><b>2.4K</b></div><div class="micro-kpi"><small>Conv.</small><b>3.2%</b></div></div></div></article>
           </div>
         </div>
       </div>
@@ -536,12 +849,12 @@
         <div class="showcase-shell reveal">
           <div class="section-orbit"></div>
           <div class="product-grid">
-            <article class="card product-card gold reveal"><div class="ambient-line"></div><div class="icon">🧠</div><h3>LaunchVault Core</h3><p>The main premium prompt system for creators and entrepreneurs who want faster execution with AI.</p><div class="product-tag">Main product</div><a class="button-mini" href="#">View product →</a></article>
-            <article class="card product-card reveal"><div class="ambient-line"></div><div class="icon">🛒</div><h3>Shopify Growth Kit</h3><p>Prompts and content ideas for ecommerce owners who want product pages, campaigns, and store strategy.</p><div class="product-tag">Ecommerce angle</div><a class="button-mini" href="#">View product →</a></article>
-            <article class="card product-card reveal"><div class="ambient-line"></div><div class="icon">🎬</div><h3>Content Creator Kit</h3><p>Hooks, post ideas, captions, scripts, and content systems for creators who publish consistently.</p><div class="product-tag">Creator angle</div><a class="button-mini" href="#">View product →</a></article>
-            <article class="card product-card reveal"><div class="ambient-line"></div><div class="icon">⚙️</div><h3>Business Automation Kit</h3><p>AI workflows, admin prompts, email templates, and operations support for small business owners.</p><div class="product-tag">Business angle</div><a class="button-mini" href="#">View product →</a></article>
-            <article class="card product-card gold reveal"><div class="ambient-line"></div><div class="icon">🚀</div><h3>Productivity Vault</h3><p>Prompts for planning, organization, productivity, and daily execution with a premium AI assistant feel.</p><div class="product-tag">Productivity angle</div><a class="button-mini" href="#">View product →</a></article>
-            <article class="card product-card reveal"><div class="ambient-line"></div><div class="icon">💻</div><h3>Web Design Kit</h3><p>Prompts and structures for landing pages, website sections, offers, positioning, and conversion copy.</p><div class="product-tag">Design angle</div><a class="button-mini" href="#">View product →</a></article>
+            <article class="card product-card gold enhanced reveal"><div class="ambient-line"></div><div class="icon">🧠</div><h3>LaunchVault Core</h3><p>The main premium prompt system for creators and entrepreneurs who want faster execution with AI.</p><div class="product-tag">Main product</div><a class="button-mini" href="https://launchvault.sackoconcept.com/" target="_blank" rel="noopener">View product →</a></article>
+            <article class="card product-card enhanced reveal"><div class="ambient-line"></div><div class="icon">🛒</div><h3>Shopify Growth Kit</h3><p>Prompts and content ideas for ecommerce owners who want product pages, campaigns, and store strategy.</p><div class="product-tag">Ecommerce angle</div><a class="button-mini" href="https://launchvault.sackoconcept.com/" target="_blank" rel="noopener">View product →</a></article>
+            <article class="card product-card enhanced reveal"><div class="ambient-line"></div><div class="icon">🎬</div><h3>Content Creator Kit</h3><p>Hooks, post ideas, captions, scripts, and content systems for creators who publish consistently.</p><div class="product-tag">Creator angle</div><a class="button-mini" href="https://launchvault.sackoconcept.com/" target="_blank" rel="noopener">View product →</a></article>
+            <article class="card product-card enhanced reveal"><div class="ambient-line"></div><div class="icon">⚙️</div><h3>Business Automation Kit</h3><p>AI workflows, admin prompts, email templates, and operations support for small business owners.</p><div class="product-tag">Business angle</div><a class="button-mini" href="https://launchvault.sackoconcept.com/" target="_blank" rel="noopener">View product →</a></article>
+            <article class="card product-card gold enhanced reveal"><div class="ambient-line"></div><div class="icon">🚀</div><h3>Productivity Vault</h3><p>Prompts for planning, organization, productivity, and daily execution with a premium AI assistant feel.</p><div class="product-tag">Productivity angle</div><a class="button-mini" href="https://launchvault.sackoconcept.com/" target="_blank" rel="noopener">View product →</a></article>
+            <article class="card product-card enhanced reveal"><div class="ambient-line"></div><div class="icon">💻</div><h3>Web Design Kit</h3><p>Prompts and structures for landing pages, website sections, offers, positioning, and conversion copy.</p><div class="product-tag">Design angle</div><a class="button-mini" href="https://launchvault.sackoconcept.com/" target="_blank" rel="noopener">View product →</a></article>
           </div>
         </div>
       </div>
@@ -578,7 +891,7 @@
           <div>
             <div class="label">Become an affiliate</div>
             <h2>Ready to recommend LaunchVault and earn commissions?</h2>
-            <p>Apply now to access your referral link, partner resources, promotional assets, and support. Replace the application link below with your real form, affiliate signup page, or Tally link.</p><div class="cta-statbar"><span class="mini-pill"><span class="meta-dot"></span> Premium affiliate experience</span><span class="mini-pill"><span class="meta-dot"></span> Easy onboarding</span><span class="mini-pill"><span class="meta-dot"></span> WhatsApp support</span></div>
+            <p>Apply now to access your referral link, partner resources, promotional assets, and support. Replace the application link below with your real form, affiliate signup page, or Tally link.</p>
             <div class="cta-statbar">
               <span class="mini-pill"><span class="meta-dot"></span> Premium affiliate experience</span>
               <span class="mini-pill"><span class="meta-dot"></span> Easy onboarding</span>
@@ -607,7 +920,7 @@
   </footer>
 
   <script>
-    const APPLY_LINK = "#";
+    const APPLY_LINK = "mailto:contact@sackoconcept.com?subject=LaunchVault%20Affiliate%20Program%20Application";
     document.querySelectorAll('.js-apply-link').forEach(link => link.setAttribute('href', APPLY_LINK));
     window.addEventListener('pointermove', event => {
       document.documentElement.style.setProperty('--mx', event.clientX + 'px');
