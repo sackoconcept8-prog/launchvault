@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LaunchVault Partner Program</title>
+  <meta name="description" content="A premium partner ecosystem for creators, educators, entrepreneurs and digital business influencers promoting LaunchVault." />
+  <style>
+    :root {
+      --bg: #08080b;
+      --soft: #121217;
+      --card: rgba(255,255,255,.07);
+      --line: rgba(255,255,255,.14);
+      --text: #fff8ec;
+      --muted: #bdb2a3;
+      --gold: #d7b56d;
+      --gold2: #fff0b8;
+      --green: #9bf2c3;
+      --blue: #a8ccff;
+      --radius: 26px;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 10% -10%, rgba(215,181,109,.28), transparent 35%), radial-gradient(circle at 90% 10%, rgba(168,204,255,.16), transparent 32%), #08080b;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 36px)); margin: 0 auto; }
+    .nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px); background: rgba(8,8,11,.72); border-bottom: 1px solid var(--line); }
+    .nav-inner { min-height: 72px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 850; letter-spacing: -.03em; }
+    .mark { width: 40px; height: 40px; border-radius: 15px; display: grid; place-items: center; background: linear-gradient(135deg, var(--gold2), var(--gold)); color: #13100a; }
+    .nav-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: 14px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.06); font-weight: 800; }
+    .btn-primary { background: linear-gradient(135deg, var(--gold2), var(--gold)); color: #14100a; border: 0; }
+    .hero { padding: 94px 0 60px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 42px; align-items: center; }
+    .eyebrow { display: inline-flex; margin-bottom: 20px; padding: 8px 13px; border-radius: 999px; border: 1px solid rgba(215,181,109,.32); color: var(--gold2); background: rgba(215,181,109,.09); font-size: 13px; font-weight: 800; }
+    h1 { font-size: clamp(44px, 7vw, 84px); line-height: .92; letter-spacing: -.075em; margin-bottom: 24px; }
+    h2 { font-size: clamp(34px, 5vw, 56px); line-height: .98; letter-spacing: -.06em; margin-bottom: 18px; }
+    h3 { letter-spacing: -.04em; line-height: 1.08; }
+    .gradient { background: linear-gradient(135deg, #fff, #ffe7a6 58%, #b99043); -webkit-background-clip: text; color: transparent; }
+    .hero p, .section-head p { color: var(--muted); font-size: 18px; max-width: 680px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .mock { border: 1px solid var(--line); border-radius: 34px; background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.035)); overflow: hidden; box-shadow: 0 30px 100px rgba(0,0,0,.45); }
+    .mock-top { min-height: 64px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; padding: 0 22px; }
+    .dots { display: flex; gap: 8px; }
+    .dot { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,.25); }
+    .pill { padding: 7px 10px; border-radius: 999px; background: var(--green); color: #06130d; font-weight: 900; font-size: 12px; }
+    .mock-body { padding: 22px; }
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 18px; }
+    .stat { border: 1px solid var(--line); background: rgba(0,0,0,.22); padding: 18px; border-radius: 20px; }
+    .label { color: var(--muted); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .value { font-size: 32px; font-weight: 900; letter-spacing: -.06em; }
+    section { padding: 78px 0; }
+    .kicker { color: var(--gold); font-weight: 900; letter-spacing: .12em; text-transform: uppercase; font-size: 12px; margin-bottom: 10px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 24px; }
+    .card p, .card li { color: var(--muted); }
+    .icon { width: 46px; height: 46px; border-radius: 16px; display: grid; place-items: center; background: rgba(215,181,109,.13); border: 1px solid rgba(215,181,109,.26); margin-bottom: 18px; font-size: 21px; }
+    .clean { list-style: none; display: grid; gap: 10px; margin-top: 16px; }
+    .clean li:before { content: "✓"; color: var(--green); font-weight: 900; margin-right: 10px; }
+    .tier { border: 1px solid var(--line); border-radius: 28px; background: rgba(255,255,255,.055); padding: 24px; }
+    .tier.featured { border-color: rgba(215,181,109,.52); background: linear-gradient(180deg, rgba(215,181,109,.14), rgba(255,255,255,.05)); }
+    .badge { display: inline-block; margin-bottom: 16px; padding: 7px 11px; border-radius: 999px; background: rgba(255,255,255,.1); font-size: 12px; font-weight: 900; }
+    .commission { font-size: 40px; font-weight: 950; letter-spacing: -.06em; margin: 12px 0 4px; }
+    .small { color: var(--muted); font-size: 14px; }
+    .hub { display: grid; grid-template-columns: .95fr 1.05fr; gap: 22px; align-items: start; }
+    .menu { border: 1px solid var(--line); border-radius: 28px; background: rgba(255,255,255,.06); padding: 14px; }
+    .menu div { display: flex; justify-content: space-between; padding: 13px 15px; border-radius: 16px; color: var(--muted); font-weight: 800; }
+    .menu .active { background: rgba(215,181,109,.12); color: var(--gold2); }
+    .resources { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .contest { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 18px; border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; background: linear-gradient(135deg, rgba(215,181,109,.13), rgba(255,255,255,.04)); margin-bottom: 14px; }
+    .prize { color: var(--gold2); font-size: 28px; font-weight: 950; letter-spacing: -.05em; white-space: nowrap; }
+    .apply { border: 1px solid rgba(215,181,109,.35); border-radius: 34px; background: radial-gradient(circle at 90% 5%, rgba(215,181,109,.23), transparent 35%), rgba(255,255,255,.065); padding: clamp(28px, 5vw, 52px); }
+    .apply-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 28px; align-items: center; }
+    footer { padding: 36px 0; border-top: 1px solid var(--line); color: var(--muted); }
+    @media (max-width: 960px) { .hero-grid, .hub, .apply-grid { grid-template-columns: 1fr; } .grid-3, .grid-4 { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 680px) { .nav-links { display: none; } .grid-3, .grid-4, .resources, .stats, .contest { grid-template-columns: 1fr; } h1 { font-size: 48px; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top"><span class="mark">LV</span><span>LaunchVault Partners</span></a>
+      <div class="nav-links">
+        <a href="#program">Program</a>
+        <a href="#hub">Partner Hub</a>
+        <a href="#levels">Levels</a>
+        <a href="#contests">Contests</a>
+        <a class="btn btn-primary" href="#apply">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Premium affiliate ecosystem · 40% to 50% commissions</div>
+          <h1>Become a <span class="gradient">LaunchVault Partner</span>.</h1>
+          <p>Promote a premium AI business system built for creators, entrepreneurs and digital business owners — with a private Partner Hub, ready-to-publish assets, sales tracking, monthly contests and performance-based partner levels.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#apply">Apply to Become a Partner</a>
+            <a class="btn" href="#hub">Explore the Partner Hub</a>
+          </div>
+        </div>
+        <div class="mock">
+          <div class="mock-top"><div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><span class="pill">Gold Partner</span></div>
+          <div class="mock-body">
+            <h3>Partner Dashboard</h3>
+            <p class="small">Track sales, commissions, conversion rate and monthly rank.</p>
+            <div class="stats">
+              <div class="stat"><div class="label">Monthly Sales</div><div class="value">28</div></div>
+              <div class="stat"><div class="label">Commission</div><div class="value">$798</div></div>
+              <div class="stat"><div class="label">Conversion</div><div class="value">3.2%</div></div>
+              <div class="stat"><div class="label">Leaderboard</div><div class="value">#2</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="program">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Program positioning</div>
+          <h2>A premium partner program, not a basic affiliate link.</h2>
+          <p>The LaunchVault Partner Program gives selected creators a complete system to promote LaunchVault professionally and grow commissions through a private partner ecosystem.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><div class="icon">💼</div><h3>Premium product</h3><p>LaunchVault includes 500+ AI prompts, workflows and business resources for creators, freelancers and entrepreneurs.</p></article>
+          <article class="card"><div class="icon">📊</div><h3>Clear tracking</h3><p>Partners receive a unique affiliate link, sales tracking, commissions, payout information and leaderboard status.</p></article>
+          <article class="card"><div class="icon">🎨</div><h3>Marketing kit</h3><p>Videos, Canva visuals, captions, email templates, short-form scripts and campaign ideas help partners publish faster.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="hub">
+      <div class="container hub">
+        <div>
+          <div class="kicker">Private workspace</div>
+          <h2>The LaunchVault Partner Hub.</h2>
+          <p class="small">A private command center where partners access everything they need to promote LaunchVault, track performance and participate in campaigns.</p>
+          <div class="menu" style="margin-top:22px;">
+            <div class="active"><span>Partner Dashboard</span><span>📊</span></div>
+            <div><span>Sales & Commissions</span><span>📈</span></div>
+            <div><span>Video Library</span><span>🎥</span></div>
+            <div><span>Canva Creative Kit</span><span>🖼️</span></div>
+            <div><span>Social Media Copy</span><span>✍️</span></div>
+            <div><span>Email Templates</span><span>📧</span></div>
+            <div><span>Leaderboard</span><span>🏆</span></div>
+          </div>
+        </div>
+        <div class="resources">
+          <article class="card"><h3>📊 Dashboard</h3><p>Affiliate link, current level, sales this month, commissions, conversion rate and contest rank.</p></article>
+          <article class="card"><h3>🎥 Video Library</h3><p>Demo videos, TikTok/Reels scripts, faceless videos and UGC-style content prompts.</p></article>
+          <article class="card"><h3>🖼️ Canva Assets</h3><p>Instagram posts, stories, TikTok covers, Facebook graphics, X visuals, LinkedIn posts and YouTube thumbnails.</p></article>
+          <article class="card"><h3>📧 Email Swipes</h3><p>Ready-to-send emails for product recommendations, launches, reminders and promotional campaigns.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="levels">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Partner levels</div>
+          <h2>Bronze, Silver, Gold and Platinum.</h2>
+          <p>Partners progress through clear levels based on validated sales and revenue generated.</p>
+        </div>
+        <div class="grid-4">
+          <article class="tier"><span class="badge">Bronze</span><h3>Starter Partner</h3><div class="commission">40%</div><p class="small">Accepted partners start here.</p><ul class="clean"><li>Partner Hub access</li><li>Canva kit</li><li>Social copy</li></ul></article>
+          <article class="tier"><span class="badge">Silver</span><h3>Active Partner</h3><div class="commission">45%</div><p class="small">10 sales or $500 generated.</p><ul class="clean"><li>Higher commission</li><li>Custom coupon option</li><li>Priority assets</li></ul></article>
+          <article class="tier featured"><span class="badge">Gold</span><h3>Top Partner</h3><div class="commission">50%</div><p class="small">25 sales or $1,500 generated.</p><ul class="clean"><li>Maximum standard rate</li><li>Priority support</li><li>Campaign access</li></ul></article>
+          <article class="tier"><span class="badge">Platinum</span><h3>Strategic Partner</h3><div class="commission">Custom</div><p class="small">By invitation or high performance.</p><ul class="clean"><li>Dedicated landing page</li><li>Co-branded campaigns</li><li>Special bonuses</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contests">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Monthly motivation</div>
+          <h2>Contests, rankings and performance rewards.</h2>
+          <p>Monthly challenges keep partners active and create a serious, competitive affiliate environment.</p>
+        </div>
+        <div class="contest"><div><h3>Top Partner of the Month</h3><p class="small">Awarded to the partner with the most validated sales during the month.</p></div><div class="prize">$50–$250</div></div>
+        <div class="contest"><div><h3>Fast Start Challenge</h3><p class="small">New partners who generate 3 validated sales in their first 14 days unlock a bonus.</p></div><div class="prize">$25</div></div>
+        <div class="contest"><div><h3>Highest Conversion Rate</h3><p class="small">Rewards the partner with the best conversion rate, with a minimum click requirement.</p></div><div class="prize">$100</div></div>
+      </div>
+    </section>
+
+    <section id="apply">
+      <div class="container">
+        <div class="apply apply-grid">
+          <div>
+            <div class="kicker">Apply now</div>
+            <h2>Join the private launch of the Partner Program.</h2>
+            <p class="small">We are selecting creators, educators, entrepreneurs and digital business influencers aligned with the LaunchVault brand and audience.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="mailto:partners@sackoconcept.com?subject=LaunchVault Partner Program Application">Apply by Email</a>
+              <a class="btn" href="#program">Review Program</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Application review includes:</h3>
+            <ul class="clean">
+              <li>Content quality</li>
+              <li>Audience relevance</li>
+              <li>Brand alignment</li>
+              <li>Promotion style</li>
+              <li>Affiliate experience</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© SACKO CONCEPT — LaunchVault Partner Program. Built for selected creators and digital business partners worldwide.</p>
+    </div>
+  </footer>
+</body>
+</html>
